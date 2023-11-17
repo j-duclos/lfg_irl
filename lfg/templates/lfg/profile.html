@@ -1,0 +1,17 @@
+{% extends "lfg/base.html" %}
+
+{% block content %}
+    <h2>Your Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type=""submit">Save</button>
+    </form>
+
+    <h2>Your Friends</h2>
+    <ul>
+        {% for friend in user_profile.friends.all %}
+        <li>{{ friend }}</li>
+        {% endfor %}
+    </ul>
+    {% endblock content %}
